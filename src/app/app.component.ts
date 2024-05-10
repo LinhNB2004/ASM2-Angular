@@ -20,17 +20,5 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'WD18332';
-  user = {
-    name: 'LÊ THỊ THÙY LINH',
-    age: 20,
-    address: 'Ninh Bình',
-    email: 'linhlinh26052004@gmail.com',
-  };
-  hello() {
-    console.log('Xin chào!');
-  }
-  showInfor() {
-    console.log('Hien thi thong tin ca nhan!');
-  }
+  products: string = 'iphone 11';
 }
