@@ -1,6 +1,6 @@
 import { ProductListComponent } from './product-list/product-list.component';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     NotFoundComponent,
     FormsModule,
+    RouterLink,
+    RouterLinkActive,
   ],
 
   templateUrl: './app.component.html',

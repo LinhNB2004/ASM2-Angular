@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductListComponent {
   constructor() {}
-  @Input() data: string | undefined;
+  @Input() data: string | undefined; //nhận
   @Input() style: string | undefined;
 }
