@@ -1,12 +1,8 @@
 <!-- <app-product-list [data]="products"> </app-product-list> -->
-
-<header>
-  <nav>
-    <a routerLink="/home" routerLinkActive="active">Home</a> |
-    <a routerLink="/about">About</a> |
-    <a routerLink="/products">Products</a>
-  </nav>
-</header>
-<br />
-<router-outlet></router-outlet>
-<footer>Copyright by linhlttph37534</footer>
+<app-header></app-header>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+<footer class="text-bg-dark p-4 text-lg-center">
+  Copyright by linhlttph37534
+</footer>
