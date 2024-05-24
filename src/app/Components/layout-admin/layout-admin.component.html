@@ -1,0 +1,36 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<header class="header-admin">
+  <h1>Hello Admin</h1>
+</header>
+
+<div class="content">
+  <div class="row h-100">
+    <ul class="col-3 side-bar">
+      <li>
+        <a [routerLink]="['/admin']"
+          ><i class="fa-solid fa-house"></i> Dashboard</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['/admin/product-add']">
+          <i class="fa-solid fa-plus"></i> Add new Product</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['/list-users']">
+          <i class="fa-solid fa-list"></i> List Users</a
+        >
+      </li>
+    </ul>
+    <div class="col-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
