@@ -8,6 +8,7 @@ import { LayoutClientComponent } from './Components/layout-client/layout-client.
 import { LayoutAdminComponent } from './Components/layout-admin/layout-admin.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { ProductUpdateComponent } from './pages/product-update/product-update.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,10 @@ export const routes: Routes = [
       {
         path: 'product-add',
         component: ProductAddComponent,
+      },
+      {
+        path: 'product-update/:id',
+        component: ProductUpdateComponent,
       },
     ],
   },

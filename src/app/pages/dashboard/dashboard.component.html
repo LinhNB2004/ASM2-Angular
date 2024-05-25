@@ -24,9 +24,13 @@
       <td>{{ product.description }}</td>
 
       <td>
-        <button class="btn btn-warning m-2"><a href="">Edit</a></button>
+        <button class="btn btn-warning m-2">
+          <a [routerLink]="['/admin/product-update', product.id]">Edit</a>
+        </button>
 
-        <button class="btn btn-danger"><a href="">Delete</a></button>
+        <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+          Delete
+        </button>
       </td>
     </tr>
   </tbody>

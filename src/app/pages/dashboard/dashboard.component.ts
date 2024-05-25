@@ -19,4 +19,21 @@ export class DashboardComponent implements OnInit {
       this.products = products;
     });
   }
+
+  deleteProduct(id: string | number | undefined): void {
+    if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+      this.productService.deleteProduct(id).subscribe(
+        () => {
+          alert('Xóa sản phẩm thành công');
+          this.productService.getProducts().subscribe((products) => {
+            this.products = products;
+          }); // load lại danh sách
+        },
+        (error) => {
+          console.error('Xóa sản phẩm thất bại', error);
+          alert('Xóa sản phẩm thất bại');
+        }
+      );
+    }
+  }
 }
