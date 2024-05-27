@@ -23,12 +23,11 @@ export class ProductUpdateComponent implements OnInit {
   productForm: FormGroup = {} as FormGroup;
 
   // khởi tạo (constructor)
-  //để them các dịch vụ ProductService, Router, và FormBuilder vào component
   constructor(
     private productService: ProductService,
     private router: Router,
     private fb: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute // Lấy dl cũ
   ) {
     this.productForm = this.fb.group({
       thumbnail: ['', [Validators.required, Validators.minLength(3)]],
@@ -39,7 +38,7 @@ export class ProductUpdateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.params['id'];
     if (id) {
       this.productService.getProductById(id).subscribe((product) => {
         this.product = product;
