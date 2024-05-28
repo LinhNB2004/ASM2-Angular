@@ -9,6 +9,7 @@ import { LayoutAdminComponent } from './Components/layout-admin/layout-admin.com
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { ProductUpdateComponent } from './pages/product-update/product-update.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
   {
@@ -48,6 +49,10 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: '**',

@@ -517,5 +517,21 @@
       "id": 34
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "linhlttph37534@fpt.edu.vn",
+      "password": "$2a$10$9L1vQy295T39lk0FoyTvYeQg6xBf7z9Lc5CMNgvmbD9NIBrnLFLFK",
+      "id": 1
+    },
+    {
+      "email": "linhlinh@gmail.12",
+      "password": "$2a$10$pv8oadWW8LsgKvXJKYMjXe09f4vzGlqQsy3d0gLWeV2HKsUn7JyoC",
+      "id": 2
+    },
+    {
+      "email": "linhlinh@gmail.com",
+      "password": "$2a$10$wO49OmPAXpz1pgotb9gOo.F033Mh86WoqaauWnboNc8sV3VwKDTqe",
+      "id": 3
+    }
+  ]
 }

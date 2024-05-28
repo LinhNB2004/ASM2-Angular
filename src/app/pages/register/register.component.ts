@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -8,17 +8,17 @@ import {
   Validators,
 } from '@angular/forms';
 import { User } from '../../interfaces/User';
+import { CommonModule } from '@angular/common';
 import { UserService } from '../../user.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, CommonModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss',
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   user: User = {} as User;
   userForm: FormGroup = {} as FormGroup;
 
@@ -40,24 +40,13 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.userForm.get('password');
   }
-
   handleSubmit() {
     if (this.userForm.valid) {
-      const { email, password } = this.userForm.value;
-      this.userService.loginUser(email, password).subscribe(
-        () => {
-          console.log('Login thành công');
-          alert('Login thành công');
-          this.router.navigate(['/']);
-        },
-        (error) => {
-          if (error.status === 401) {
-            alert('Email hoặc mật khẩu không đúng');
-          } else {
-            alert('Đã xảy ra lỗi, vui lòng thử lại sau.');
-          }
-        }
-      );
+      this.userService.createUser(this.userForm.value).subscribe((data) => {
+        console.log('Đăng kí thành công', data);
+        alert('Đăng kí thành công, Chuyển hướng sang Login');
+        this.router.navigate(['/login']);
+      });
     }
   }
 }
