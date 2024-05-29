@@ -10,11 +10,12 @@ import {
 import { User } from '../../interfaces/User';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../user.service';
+import { HeaderComponent } from '../../Components/header/header.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, HeaderComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -42,9 +43,9 @@ export class RegisterComponent implements OnInit {
   }
   handleSubmit() {
     if (this.userForm.valid) {
-      this.userService.createUser(this.userForm.value).subscribe((data) => {
-        console.log('Đăng kí thành công', data);
-        alert('Đăng kí thành công, Chuyển hướng sang Login');
+      this.userService.Register(this.userForm.value).subscribe((data) => {
+        console.log('Đăng ký thành công', data);
+        alert('Đăng ký thành công, Chuyển hướng sang Login');
         this.router.navigate(['/login']);
       });
     }

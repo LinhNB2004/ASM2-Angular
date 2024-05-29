@@ -6,16 +6,13 @@ import { User } from './interfaces/User';
   providedIn: 'root',
 })
 export class UserService {
-  private baseURL = 'http://localhost:3000/users';
+  private baseURL = 'http://localhost:3000';
   constructor(private http: HttpClient) {}
 
-  createUser(user: User) {
-    return this.http.post(`${this.baseURL}`, user);
+  Register(user: User) {
+    return this.http.post(`${this.baseURL}/register`, user);
   }
-  loginUser(email: string, password: string) {
-    return this.http.post<User | null>(`${this.baseURL}/login`, {
-      email,
-      password,
-    });
+  Login(user: User) {
+    return this.http.post(`${this.baseURL}/login`, user);
   }
 }

@@ -10,11 +10,12 @@ import {
 import { User } from '../../interfaces/User';
 import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
+import { HeaderComponent } from '../../Components/header/header.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, HeaderComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -43,19 +44,18 @@ export class LoginComponent implements OnInit {
 
   handleSubmit() {
     if (this.userForm.valid) {
-      const { email, password } = this.userForm.value;
-      this.userService.loginUser(email, password).subscribe(
-        () => {
-          console.log('Login thành công');
-          alert('Login thành công');
-          this.router.navigate(['/']);
+      const email = this.email?.value;
+      const password = this.password?.value;
+      const user = { email, password };
+
+      this.userService.Login(user).subscribe(
+        (data) => {
+          console.log('Đăng nhập thành công:', data);
+          alert('Đăng nhập thành công, Chuyển hướng sang home');
+          this.router.navigate(['/home']);
         },
         (error) => {
-          if (error.status === 401) {
-            alert('Email hoặc mật khẩu không đúng');
-          } else {
-            alert('Đã xảy ra lỗi, vui lòng thử lại sau.');
-          }
+          console.error('Đăng nhập thất bại:', error);
         }
       );
     }
