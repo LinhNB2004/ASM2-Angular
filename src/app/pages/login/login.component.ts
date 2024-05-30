@@ -48,16 +48,20 @@ export class LoginComponent implements OnInit {
       const password = this.password?.value;
       const user = { email, password };
 
-      this.userService.Login(user).subscribe(
-        (data) => {
+      this.userService.Login(user).subscribe({
+        next: (data) => {
           console.log('Đăng nhập thành công:', data);
           alert('Đăng nhập thành công, Chuyển hướng sang home');
           this.router.navigate(['/home']);
         },
-        (error) => {
-          console.error('Đăng nhập thất bại:', error);
-        }
-      );
+        error: (err) => {
+          alert('Tài khoản hoặc mật khẩu không đúng');
+          console.error('Đăng nhập thất bại:', err);
+        },
+      });
+    } else {
+      alert('form is not valid!');
+      console.log('form is not valid!');
     }
   }
 }

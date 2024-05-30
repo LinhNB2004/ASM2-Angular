@@ -43,11 +43,20 @@ export class RegisterComponent implements OnInit {
   }
   handleSubmit() {
     if (this.userForm.valid) {
-      this.userService.Register(this.userForm.value).subscribe((data) => {
-        console.log('Đăng ký thành công', data);
-        alert('Đăng ký thành công, Chuyển hướng sang Login');
-        this.router.navigate(['/login']);
+      this.userService.Register(this.userForm.value).subscribe({
+        next: (data) => {
+          console.log('Đăng ký thành công', data);
+          alert('Đăng ký thành công, Chuyển hướng sang Login');
+          this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.log('Đăng ký thất bại!', err);
+          alert(`Đăng ký thất bại!, ${err.error}`);
+        },
       });
+    } else {
+      alert('form is not valid!');
+      console.log('form is not valid!');
     }
   }
 }
