@@ -4,7 +4,12 @@
   background-color: black;
   color: #fff;
 }
-
+h1 {
+  float: left;
+}
+button {
+  padding-left: 90%;
+}
 .content {
   height: 100vh;
   .h-100 {

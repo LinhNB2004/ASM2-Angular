@@ -10,6 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { ProductUpdateComponent } from './pages/product-update/product-update.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { RoleGuardService } from './role-guard.service';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,10 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: LayoutAdminComponent,
+    canActivate: [RoleGuardService],
+    data: {
+      role: 1,
+    },
     children: [
       { path: '', component: DashboardComponent },
       {

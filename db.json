@@ -29,9 +29,7 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://i.pinimg.com/474x/b6/f1/6f/b6f16fe4177b5cbca008cc8cd4655db4.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/3/1.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
     },
     {
       "id": 4,
@@ -520,18 +518,14 @@
   "users": [
     {
       "email": "linhlttph37534@fpt.edu.vn",
-      "password": "$2a$10$ufw7xuLcA8Pmye34DDA2luk5d73rkAZW9SHa1iyqFEtUOYiP//nL2",
-      "id": 1
+      "password": "$2a$10$HlzL3GZmYd1R9jm8WxFWCetaRfkdq.D9h9EyirvcCmgsUd3pBj3F6",
+      "id": 1,
+      "role": 1
     },
     {
-      "email": "linhlttph37534@fpt.edu.vn8",
-      "password": "$2a$10$wFUp5y/SjI50l3hW/qI/8e8w4t/jpQR.PK5ZvOTnLG.fRlDRo9s7.",
+      "email": "linhlinh@gmail.12",
+      "password": "$2a$10$Zd4uUH0jiaL/AkgN8W3u3.uLMBbJhXfQk4fJuAgoYvevHhMclQGPa",
       "id": 2
-    },
-    {
-      "email": "linhlttph37534@fpt.edu.vn5",
-      "password": "$2a$10$e3WtgX5kPEbXOu1Rm0C5BecyxuaVdzc5zvnh2mdmlA7blSe7qk.2K",
-      "id": 3
     }
   ]
 }

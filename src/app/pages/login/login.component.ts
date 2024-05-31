@@ -17,7 +17,7 @@ import { HeaderComponent } from '../../Components/header/header.component';
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, CommonModule, HeaderComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   user: User = {} as User;
@@ -49,10 +49,20 @@ export class LoginComponent implements OnInit {
       const user = { email, password };
 
       this.userService.Login(user).subscribe({
-        next: (data) => {
+        next: (data: any) => {
+          const token = data.accessToken;
+          const role = data.user?.role;
+
+          localStorage.setItem('authToken', token);
+          localStorage.setItem('userRole', role?.toString() || ''); // || để role không được đặt giá trị undefined
+
           console.log('Đăng nhập thành công:', data);
-          alert('Đăng nhập thành công, Chuyển hướng sang home');
-          this.router.navigate(['/home']);
+          alert('Đăng nhập thành công');
+          if (role === 1) {
+            this.router.navigate(['/admin']);
+          } else {
+            this.router.navigate(['/home']);
+          }
         },
         error: (err) => {
           alert('Tài khoản hoặc mật khẩu không đúng');
@@ -60,8 +70,8 @@ export class LoginComponent implements OnInit {
         },
       });
     } else {
-      alert('form is not valid!');
-      console.log('form is not valid!');
+      alert('form không hợp lệ!');
+      console.log('form không hợp lệ!');
     }
   }
 }
