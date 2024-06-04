@@ -10,12 +10,17 @@ import {
 import { User } from '../../interfaces/User';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../user.service';
-import { HeaderComponent } from '../../Components/header/header.component';
+import { LayoutAdminComponent } from '../../Components/layout-admin/layout-admin.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, HeaderComponent],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    LayoutAdminComponent,
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })

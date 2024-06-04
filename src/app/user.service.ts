@@ -7,6 +7,7 @@ import { User } from './interfaces/User';
 })
 export class UserService {
   private baseURL = 'http://localhost:3000';
+
   constructor(private http: HttpClient) {}
 
   Register(user: User) {

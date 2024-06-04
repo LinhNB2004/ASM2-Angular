@@ -35,12 +35,6 @@ export class ProductAddComponent implements OnInit {
   }
   ngOnInit(): void {}
   handleSubmit() {
-    // this.productService.createProduct(this.product).subscribe((product) => {
-    //   console.log('Success!', product);
-    // chuyen huong trang
-    // this.router.navigate(['/admin']);
-    // });
-
     // Kiểm tra tính hợp lệ của form
     if (this.productForm.valid) {
       // valid: Thành công

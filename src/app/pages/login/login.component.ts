@@ -10,12 +10,17 @@ import {
 import { User } from '../../interfaces/User';
 import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
-import { HeaderComponent } from '../../Components/header/header.component';
+import { LayoutAdminComponent } from '../../Components/layout-admin/layout-admin.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, HeaderComponent],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    LayoutAdminComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
@@ -51,10 +56,10 @@ export class LoginComponent implements OnInit {
       this.userService.Login(user).subscribe({
         next: (data: any) => {
           const token = data.accessToken;
-          const role = data.user?.role;
+          const role = data.user?.role; // sd ? để tránh data k tồn tại
 
-          localStorage.setItem('authToken', token);
-          localStorage.setItem('userRole', role?.toString() || ''); // || để role không được đặt giá trị undefined
+          localStorage.setItem('accessToken', token);
+          localStorage.setItem('Role', role?.toString() || ''); // || để role không được đặt giá trị undefined
 
           console.log('Đăng nhập thành công:', data);
           alert('Đăng nhập thành công');
